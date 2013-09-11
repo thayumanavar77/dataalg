@@ -1,0 +1,9 @@
+import Data.Tree hiding (Tree)
+
+data BinaryTree a = Empty
+                    | Node a (BinaryTree a) (BinaryTree a)
+                      deriving (Eq, Ord, Show)
+listToTree :: (Ord a) => [a] -> BinaryTree a
+listToTree [] = Empty
+listToTree (x:xs) = Node x (listToTree (filter (<= x) xs))
+                           (listToTree (filter (> x) xs))

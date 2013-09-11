@@ -1,0 +1,4 @@
+import Data.List
+combination :: (Eq a) => [a] -> [[a]]
+combination [a] = [[a]]
+combination xs =  [ys | x<-xs, ys <- combination $ delete x xs]

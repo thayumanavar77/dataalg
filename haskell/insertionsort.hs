@@ -1,0 +1,10 @@
+{- Sorting - Insertion Sort 
+   thayumk@gmail.com
+-}
+insertionsort :: Ord a => [a] -> [a]
+insertionsort [] = []
+insertionsort (x:xs) = insert x (insertionsort xs)
+                       where insert x [] = [x]
+                             insert x ys'@(y:ys)
+                               | x > y = y : insert x ys
+                               | otherwise = x:ys'

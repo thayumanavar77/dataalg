@@ -1,0 +1,19 @@
+newtype Stack d = Stack [d] deriving ( Eq, Show, Read)
+
+emptyStack :: Stack d
+emptyStack = Stack []
+
+isEmpty :: Stack d -> Bool
+isEmpty (Stack []) = True
+isEmpty _ = False
+
+push :: d -> Stack d -> Stack d
+push x (Stack xs) = Stack (x:xs)
+
+pop :: Stack d -> Stack d
+pop (Stack []) = error "empty stack"
+pop (Stack (x:xs)) = Stack xs
+
+top :: Stack d -> d
+top (Stack []) = error "empty stack"
+top (Stack (x:xs)) = x

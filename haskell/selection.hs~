@@ -1,0 +1,5 @@
+import Data.List
+ssort :: [Int] -> [Int]
+ssort [] = []
+ssort x:xs =   m : ssort $ delete x xs
+               where m = minimum xs
